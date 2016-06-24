@@ -1,6 +1,7 @@
 from datetime import datetime
 import github.GithubException as GithubException
 
+
 def get_orgn_repos(g, orgn):
     org = g.get_organization(orgn)
     return org.get_repos()

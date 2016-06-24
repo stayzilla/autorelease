@@ -42,8 +42,8 @@ try:
 
         print('Created RC branch ' + ref_name)
 
-        pr_title = 'Auto Release Candidate: ' + formatted_date
-        pr_body = 'This RC branch has been pulled out from the latest devel branch.'
+        pr_title = '[bot] release candidate: ' + formatted_date
+        pr_body = 'This rc branch has been pulled out from the latest devel branch'
 
         try:
             repo.create_pull(head=ref_name, base=main_branch, title=pr_title, body=pr_body)
