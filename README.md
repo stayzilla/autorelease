@@ -11,6 +11,19 @@ the file `settings.cfg`.
 
 A new token can be generated under Github Settings [Personal Access Tokens](https://github.com/settings/tokens).
 
-# Authors
+## Setup
+
+Using VirtualEnv so that dependencies need not be installed globally.
+
+- `virtualenv venv`
+- `source venv/bin/activate`
+- `pip install -r requirements.txt`
+
+## Run
+
+- `python main.py`
+
+
+## Authors
 
 Ananth SNC <ananth.srirangam@stayzilla.com>
