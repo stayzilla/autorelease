@@ -34,7 +34,7 @@ try:
         shastring = bb.commit.sha
 
         try:
-            repo.create_git_ref(ref=ref_name, sha=shastring)
+            rc_branch = repo.create_git_ref(ref=ref_name, sha=shastring)
         except GithubException as ex:
             print_github_exc('Failed to create RC branch', ex)
             print('--')
@@ -49,6 +49,13 @@ try:
             repo.create_pull(head=ref_name, base=main_branch, title=pr_title, body=pr_body)
         except GithubException as ex:
             print_github_exc('Unable to create pull request', ex)
+
+            try:
+                print('Deleting RC branch')
+                rc_branch.delete()
+            except GithubException as ex:
+                print_github_exc('Unable to delete the RC branch that was pushed', ex)
+
             print('--')
             continue
 
